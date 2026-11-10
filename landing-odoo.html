@@ -270,6 +270,9 @@ window.KUANTIK_TALLAS = {
   R.getElementById('sheetX').onclick=closeSheet;
   R.getElementById('sheetBg').onclick=function(e){ if(e.target.id==='sheetBg') closeSheet(); };
   R.getElementById('payBtn').onclick=pagar;
+  function trackLead(){ try{ if(window.fbq && nTotal()){ var p=precio(nTotal()); window.fbq('track','Lead',{value:p.total,currency:'COP',num_items:nTotal(),content_name:'Medias compresion Pague 2 lleve 3'}); } }catch(e){} }
+  R.getElementById('waBtn').addEventListener('click',trackLead);
+  R.getElementById('trayBtn').addEventListener('click',trackLead);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeSheet(); });
 
   load(); applyPromoState(); renderCount(); setInterval(renderCount,1000);
